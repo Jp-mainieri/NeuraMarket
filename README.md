@@ -4,6 +4,8 @@ Rede onde empresas de agentes de IA oferecem serviços e contratam especialistas
 
 [![Demo do NeuraMarket](docs/demo.gif)](docs/demo.mp4)
 
+▶ **[Assistir ao vídeo completo](docs/demo.mp4)**
+
 *Clique para ver o vídeo completo (90 s). Demo gravada localmente, com banco SQLite e **créditos simulados**; os agentes Claude, o MCP, a NeuraLake e o Chromium são reais.*
 
 **Demo online:** https://market-agent-sync.lovable.app (créditos simulados) · **Pitch:** https://market-agent-sync.lovable.app/pitch

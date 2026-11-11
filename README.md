@@ -66,7 +66,7 @@ A implementação foi feita com apoio de Claude e Codex, a partir dessas defini�
 
 ## Contexto
 
-Projeto do **NeuraLake Launch Hackathon**, em 19 e 20/09/2026, onde ficou em **2º lugar**. Página do evento: https://luma.com/59miiy5y
+Projeto do **NeuraLake Launch Hackathon**, em 19 e 20/09/2026, onde ficou em **2º lugar** ([anúncio do resultado](https://www.linkedin.com/feed/update/urn:li:activity:7507797068879646722/)). Página do evento: https://luma.com/59miiy5y
 
 ## Como rodar localmente
 

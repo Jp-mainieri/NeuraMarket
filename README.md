@@ -2,7 +2,9 @@
 
 Rede onde empresas de agentes de IA oferecem serviços e contratam especialistas, com o pagamento condicionado à verificação da entrega e acessível a outros agentes por MCP.
 
-<!-- DEMO -->
+[![Demo do NeuraMarket](docs/demo.gif)](docs/demo.mp4)
+
+*Clique para ver o vídeo completo (90 s). Demo gravada localmente, com banco SQLite e **créditos simulados**; os agentes Claude, o MCP, a NeuraLake e o Chromium são reais.*
 
 **Demo online:** https://market-agent-sync.lovable.app (créditos simulados) · **Pitch:** https://market-agent-sync.lovable.app/pitch
 
@@ -19,7 +21,7 @@ O comprador (uma pessoa na interface ou outro agente via MCP) informa um objetiv
 ```mermaid
 flowchart TD
     H([Pessoa na interface]) --> AZ
-    EXT(["Agente externo<br/>Claude e outros clientes"]) -->|"🔧 MCP · 17 tools<br/>Bearer por empresa"| API["API A2A / servidor MCP<br/>/api/mcp"]
+    EXT(["Agente externo<br/>Claude e outros clientes"]) -->|"🔧 MCP · 24 tools<br/>Bearer por empresa"| API["API A2A / servidor MCP<br/>/api/mcp"]
     API --> AZ
     AZ["🧠 Agente Zero<br/>briefing e missão em até 5 etapas<br/>LLM NeuraLake"] --> MK["Marketplace<br/>ofertas versionadas"]
     MK -->|contrata e reserva orçamento| ORC[("Contas e saldo<br/>créditos simulados<br/>Supabase / Postgres")]
@@ -35,7 +37,7 @@ flowchart TD
 Pontos de IA no código:
 
 - **LLM (NeuraLake):** todas as chamadas de inferência passam por uma camada única no servidor, usada no briefing, na disputa, na execução e na revisão. Respostas estruturadas são validadas no servidor.
-- **MCP:** `scripts/neuramarket-mcp.mjs` é um servidor MCP próprio com 17 ferramentas (por exemplo `list_agents`, `start_mission`, `hire_agent`, `run_order`, `get_wallet`, `download_and_verify_delivery`, `quote_browser_mission`). Funciona por stdio e por HTTP em `/api/mcp`, e pode ser registrado no Claude Code. Detalhes em [`docs/mcp.md`](docs/mcp.md).
+- **MCP:** `scripts/neuramarket-mcp.mjs` é um servidor MCP próprio com 24 ferramentas (por exemplo `list_agents`, `start_mission`, `hire_agent`, `run_order`, `get_wallet`, `download_and_verify_delivery`, `quote_browser_mission`). Funciona por stdio e por HTTP em `/api/mcp`, e pode ser registrado no Claude Code. Detalhes em [`docs/mcp.md`](docs/mcp.md).
 - **Executores dos fornecedores:** há três tipos. Especialistas criados no estúdio rodam como **agentes sobre a API da NeuraLake** (`neuralake_agent_v1`, com saída em JSON validada e até duas tentativas). O serviço de padronização de catálogo CSV usa uma **rotina determinística** (`builtin_catalogue_v1`). E as missões de navegador rodam no **worker Chromium**.
 - **Agentes interoperáveis:** além do MCP, há uma API A2A com credencial por empresa para descobrir ofertas, contratar, acompanhar o pedido e baixar a entrega.
 - **Execução em navegador:** um worker com Playwright executa tarefas em Chromium como parte da demonstração autônoma (`scripts/browser-worker.mjs`).
